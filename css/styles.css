@@ -1,0 +1,215 @@
+:root{
+  /* Colors */
+  --c-gradient: linear-gradient(to right, hsl(236, 72%, 79%) , hsl(237, 63%, 64%));
+
+  --bg: hsl(240, 78%, 98%);
+  --c-white: hsl(0, 0%, 100%);
+  --c-text-toogle: hsl(234, 14%, 74%);
+  --c-text: hsl(233, 13%, 49%);
+  --c-prices:hsl(232, 13%, 33%);
+  --c-lblue:hsl(236, 72%, 79%);
+  --c-dblue:hsl(237, 63%, 64%);
+  --c-gradient2: linear-gradient(to bottom, hsl(236, 72%, 79%) , hsl(237, 63%, 64%))
+
+
+}
+
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  color: var(--c-text);
+  background-color: var(--bg);
+  background-image: url(../img/bg-top.svg), url(../img/bg-bottom.svg);
+  background-position: top -40px right -200px, left -200px bottom -40px;
+  background-repeat: no-repeat;
+}
+
+.title-prices{
+  text-align: center;
+  font-size: 1.5em;
+  margin-top: 2em;
+  margin-bottom: 1em;
+}
+
+.type-prices{
+  color: var(--c-text-toogle);
+  margin-bottom: 1.5em;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toogle-prices{
+  width: 45px;
+  height: 26px;
+  margin-left: 1em;
+  margin-right: 1em;
+  border-radius:20px ;
+  background-image: var(--c-gradient);
+  cursor: pointer;
+
+}
+
+.toogle-prices:active{
+  background-image: none;
+  background-color: var(--c-text-toogle);
+}
+
+.toogle-prices::before{
+  --s-ball: 3px;
+  content: '';
+  width: 20px;
+  height: 20px;
+  margin: var(--s-ball);
+  border-radius: 100%;
+  background-color: var(--c-white);
+  display: block;
+  position: relative;
+  left: 19px;
+  
+  transition: left 300ms ease-in-out;
+
+}
+
+.toogle-prices--active::before {
+  left: 0;
+}
+
+.cards-container{
+  margin: 4em 1em;
+  display: grid;
+  grid-template-columns:  minmax(320px, 400px);
+  gap: 2em;
+  font-weight: bold;
+  justify-content: center;
+
+}
+.card{
+  background-color: var(--c-white);
+  padding: 2em;
+  border-radius: .5em;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+}
+
+.card__title{
+  font-size: 1.2em;
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+.sign__dollar{
+  font-size: 1.5rem;
+}
+
+.card__price{
+  font-size: 3em;
+  margin-bottom: 1em;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card__benefits{
+  list-style: none;
+  text-align: center;
+}
+.benefits__item{
+  padding-top:1em ;
+  padding-bottom:1em ;
+  border-top: 1px solid rgba(179, 181, 198, 0.4);
+}
+.benefits__item:last-child{
+  border-bottom: 1px solid rgba(179, 181, 198, 0.4);
+}
+
+.card__btn{
+  width: 100%;
+  padding-top: .8em;
+  padding-bottom: .8em;
+  margin-top: 2.5em;
+  border: 1px solid var(--c-lblue);
+  border-radius: 6px;
+  color: var(--c-white);
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 14px;
+  letter-spacing: 1px;
+  background-image: var(--c-gradient);
+  display: block;
+  text-align: center;
+  text-decoration: none;
+}
+
+.card__btn:active{
+  background-image: none;
+  background-color: transparent;
+  color: var(--c-dblue);
+  transform: scale(.9);
+  transition: transform 300ms ease;
+}
+
+.card__main{
+  color:var(--c-white);
+  background-image:var(--c-gradient2);
+}
+
+.card__main .card__btn{
+  background-image: none;
+  background-color: var(--c-white);
+  color: var(--c-dblue);
+}
+.card__main .benefits__item{
+  border-color: rgba(179, 181, 198, 0.8);
+}
+.card__main .card__btn:active{
+  background-color: var(--c-white);
+}
+
+@media screen and (min-width: 768px) {
+  body{
+    height: 100vh;
+    background-position: top 0 right 0, left 0 bottom 0;
+  }
+
+  .title-prices{
+    font-size: 2em;
+  }
+
+  .toogle-prices:hover{
+    background-image: none;
+    background-color: var(--c-text-toogle);
+  }
+  .cards-container{
+    width: 1000px;
+    display: block;
+    columns: 3 333px;
+    margin-top: 7em;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 0;
+  }
+  
+  .card__btn:hover{
+    background-image: none;
+    background-color: transparent;
+    color: var(--c-dblue);
+  }
+
+  .card__main{
+    padding-top: 4em;
+    padding-bottom: 4em;
+    position: relative;
+    top: -2em;
+  }
+  .card__main .card__btn:hover{
+    background-color: var(--c-white);
+  }
+}
